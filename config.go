@@ -1,4 +1,4 @@
-package client
+package dd_api
 
 type Cfg struct{
 	AppKey string `json:"app_key"`

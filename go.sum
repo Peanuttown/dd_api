@@ -4,6 +4,8 @@ github.com/Peanuttown/gopacket v1.1.18-0.20200428082008-233ea0f8dcda/go.mod h1:X
 github.com/Peanuttown/tzzGoUtil v0.0.0-20200428064152-3d4f421a41a4/go.mod h1:h+7FAk4M+vTZ+VIvxK58BpQkJNLevSWe03eE7sEgOCQ=
 github.com/Peanuttown/tzzGoUtil v1.1.0 h1:xkrLtVdb8ixL6PWXVNpVvgyVhtAnjcb2B3vqlXsWAGQ=
 github.com/Peanuttown/tzzGoUtil v1.1.0/go.mod h1:aWePOfiNa0zNHYemW4+5OwPNxcz1hpkx49ECemrb+2k=
+github.com/Peanuttown/tzzGoUtil v1.1.1 h1:SE7BFnEjMIQa1WzihTkk82k4TL8usvqY3T0v26gbC4k=
+github.com/Peanuttown/tzzGoUtil v1.1.1/go.mod h1:aWePOfiNa0zNHYemW4+5OwPNxcz1hpkx49ECemrb+2k=
 github.com/buger/goterm v0.0.0-20200322175922-2f3e71b85129/go.mod h1:u9UyCz2eTrSGy6fbupqJ54eY5c4IC8gREQ1053dK12U=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=

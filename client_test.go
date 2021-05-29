@@ -1,4 +1,4 @@
-package client
+package dd_api
 
 import(
 	"os"
