@@ -30,6 +30,7 @@ func NewApiDeptGetDetail(deptId uint)*ApiDeptGetDetail{
 type ApiDeptGetDetailRes struct{
 	DeptIdEmbed
 	DeptParentIdEmbed
+	Name string `json:"name"`
 }
 
 
