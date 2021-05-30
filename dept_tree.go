@@ -10,6 +10,7 @@ type DeptTree struct{
 	*dt.Tree
 }
 
+
 type DeptNodeValue struct{
 	DeptId uint
 	Name string
@@ -62,3 +63,4 @@ func BuildDeptTreeByApi(ctx context.Context,deptId uint,cli *Client)(*DeptTree,e
 		Tree:tree,
 	},nil
 }
+
