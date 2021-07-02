@@ -33,7 +33,7 @@ type ResI interface{
 }
 
 func (this *Res) Err()error{
-	if this.ErrCode == 0{
+	if this.ErrMsg ==  "ok"{
 		return nil
 	}
 	return this
