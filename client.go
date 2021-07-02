@@ -107,6 +107,7 @@ func (this *Client) Do(ctx context.Context,apiPath string,reqBuilder *http.Reque
 	if err != nil{
 		return err
 	}
+	fmt.Println("resBody:", string(resBytes))
 //	fmt.Println(string(resBytes))
 
 	return this.handleWrapResEntity(resBytes,resEntity)
