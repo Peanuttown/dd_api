@@ -20,6 +20,7 @@ func NewApiCorpInnerLogin(authCode string) *ApiCorpInnerLogin{
 
 type ApiCorpInnerLoginRes struct{
 	UserIdEmbed
+	Res
 }
 
 func (this *ApiCorpInnerLogin) ExecBy(ctx context.Context,cli *Client)(*ApiCorpInnerLoginRes,error){
