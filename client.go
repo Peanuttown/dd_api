@@ -4,9 +4,11 @@ import(
 	"time"
 	"fmt"
 	"encoding/json"
+	"log"
 	"context"
 	"github.com/Peanuttown/tzzGoUtil/http"
 	stdhttp "net/http"
+	"net/http/httputil"
 )
 
 type Client struct{
@@ -93,20 +95,33 @@ func (this *Client) updateTokenIfExpired(ctx context.Context)error{
 	this.accessTokenExpiredAt = time.Now().Add(time.Duration(tokenRes.ExpiresInSecond)*time.Second / 2)
 	return nil
 }
+func (this *Client) DoNoNeedToken(ctx context.Context,apiPath string,reqBuilder *http.RequestBuilder,resEntity interface{})(error){
+	return this.do(ctx,false,apiPath,reqBuilder,resEntity)
+}
 
-func (this *Client) Do(ctx context.Context,apiPath string,reqBuilder *http.RequestBuilder,resEntity interface{})(error){
+func (this *Client) do(ctx context.Context,appendToken bool,apiPath string,reqBuilder *http.RequestBuilder,resEntity interface{})(error){
 	err := this.updateTokenIfExpired(ctx)
 	if err != nil{
 		return err
 	}
 	url := fmt.Sprintf("https://%s/%s",this.cfg.ApiHost,apiPath)
 	reqBuilder.URL(url)
-	httpReq,err:=reqBuilder.PutParamsToUrl(map[string]string{
-		"access_token":this.accessToken,
-	}).Build(ctx)
-	if err != nil{
-		return err
+	var httpReq *stdhttp.Request
+	if appendToken{
+		httpReq,err=reqBuilder.PutParamsToUrl(map[string]string{
+			"access_token":this.accessToken,
+		}).Build(ctx)
+	}else{
+		httpReq,err =reqBuilder.Build(ctx)
 	}
+		if err != nil{
+			return err
+		}
+	reqDump,err := httputil.DumpRequest(httpReq,true)
+	if err != nil{
+		panic(err)
+	}
+	log.Println(string(reqDump))
 	res,err := stdhttp.DefaultClient.Do(httpReq)
 	if err != nil{
 		return err
@@ -117,6 +132,12 @@ func (this *Client) Do(ctx context.Context,apiPath string,reqBuilder *http.Reque
 	}
 
 	return this.handleWrapResEntity(resBytes,resEntity)
+
+}
+
+
+func (this *Client) Do(ctx context.Context,apiPath string,reqBuilder *http.RequestBuilder,resEntity interface{})(error){
+	return this.do(ctx,true,apiPath,reqBuilder,resEntity)
 }
 
 func (this *Client) handleResEntity(bytes []byte,res ResI)error{

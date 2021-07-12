@@ -1,6 +1,8 @@
 package dd_api
 
 import(
+	"encoding/base64"
+//	"net/url"
 	"fmt"
 	"time"
 		"context"
@@ -37,10 +39,12 @@ type  ApiGetUserInfoByteCodeResUserInfo struct{
 
 func (this *ApiGetUserInfoByteCode) ExecBy(ctx context.Context,cli *Client)(*ApiGetUserInfoByteCodeResUserInfo,error){
 	nowInMillSecond := fmt.Sprintf("%d",time.Now().Unix() * 1000)
-	signature,err := hmac.EnCryptAndEncodeToHex([]byte(this.AccessSecret),[]byte(nowInMillSecond))
+	signatureBytes,err := hmac.EnCrypt([]byte(this.AccessSecret),[]byte(nowInMillSecond))
 	if err != nil{
 		return nil, fmt.Errorf("计算签名出错: %w",err)
 	}
+	signature:=base64.StdEncoding.EncodeToString(signatureBytes)
+	// signature= url.QueryEscape(signature)
 	res := &ApiGetUserInfoByteCodeRes{}
 	reqBuilder:= http.NewRequestBuilder().
 	MethodPost().
@@ -50,7 +54,7 @@ func (this *ApiGetUserInfoByteCode) ExecBy(ctx context.Context,cli *Client)(*Api
 		"signature":signature,
 	}).
 	JsonParam(map[string]interface{}{"tmp_auth_code":this.AuthCode})
-	err =  cli.Do(ctx,"sns/getuserinfo_bycode",reqBuilder,res)
+	err =  cli.DoNoNeedToken(ctx,"sns/getuserinfo_bycode",reqBuilder,res)
 	if err != nil{
 		return nil,err
 	}
