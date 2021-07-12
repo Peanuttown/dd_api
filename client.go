@@ -47,6 +47,14 @@ func(this *Client) buildApiURL(apiPath string)(string){
 return fmt.Sprintf("https://%s/%s",this.cfg.ApiHost,apiPath)
 }
 
+func (this *Client) GetAppKey()string{
+	return this.cfg.AppKey
+}
+
+func (this *Client) GetAppSecret() string{
+	return this.cfg.AppSecret
+}
+
 
 func (this *Client) updateTokenIfExpired(ctx context.Context)error{
 	now := time.Now()
