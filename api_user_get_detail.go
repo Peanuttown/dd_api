@@ -27,6 +27,7 @@ type ApiUserGetDetailRes struct{
 	UserId string `json:"-"`
 	Name string `json:"name"`
 	Mobile string `json:"mobile"`
+	Title string `json:"title"`
 	IsLeaderInDepts []ApiUserGetDetailRes_LeaderInDept `json:"leader_in_dept"` 
 }
 
