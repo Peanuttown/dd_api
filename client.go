@@ -131,8 +131,11 @@ func (this *Client) do(ctx context.Context,appendToken bool,apiPath string,reqBu
 		return err
 	}
 
-	return this.handleWrapResEntity(resBytes,resEntity)
-
+	err = this.handleWrapResEntity(resBytes,resEntity)
+	if err != nil{
+		return fmt.Errorf("call dingding api %s failed: %w",url,err)
+	}
+	return nil
 }
 
 
