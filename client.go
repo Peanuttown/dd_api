@@ -4,11 +4,9 @@ import(
 	"time"
 	"fmt"
 	"encoding/json"
-	"log"
 	"context"
 	"github.com/Peanuttown/tzzGoUtil/http"
 	stdhttp "net/http"
-	"net/http/httputil"
 )
 
 type Client struct{
@@ -117,11 +115,6 @@ func (this *Client) do(ctx context.Context,appendToken bool,apiPath string,reqBu
 		if err != nil{
 			return err
 		}
-	reqDump,err := httputil.DumpRequest(httpReq,true)
-	if err != nil{
-		panic(err)
-	}
-	log.Println(string(reqDump))
 	res,err := stdhttp.DefaultClient.Do(httpReq)
 	if err != nil{
 		return err
