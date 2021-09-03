@@ -29,6 +29,7 @@ type ApiUserGetDetailRes struct{
 	Mobile string `json:"mobile"`
 	Title string `json:"title"`
 	IsLeaderInDepts []ApiUserGetDetailRes_LeaderInDept `json:"leader_in_dept"` 
+	Avatar string `json:"avatar"`
 }
 
 type ApiUserGetDetailRes_LeaderInDept struct{
