@@ -3,7 +3,7 @@ package dd_api
 import(
 //	"fmt"
 		"context"
-	"github.com/Peanuttown/tzzGoUtil/http"
+	"github.com/pigfall/gosdk/http"
 )
 
 type DeptIdEmbed struct{

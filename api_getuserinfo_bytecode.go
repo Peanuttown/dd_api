@@ -6,8 +6,8 @@ import(
 	"fmt"
 	"time"
 		"context"
-	"github.com/Peanuttown/tzzGoUtil/http"
-	"github.com/Peanuttown/tzzGoUtil/crypto/hmac"
+	"github.com/pigfall/gosdk/http"
+	"github.com/pigfall/gosdk/crypto/hmac"
 )
 
 // 根据sns临时授权码获取用户信息

@@ -5,7 +5,7 @@ import(
 	"path"
 	"encoding/json"
 		"testing"
-	"github.com/Peanuttown/tzzGoUtil/encoding"
+	"github.com/pigfall/gosdk/encoding"
 		"context"
 )
 

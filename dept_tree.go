@@ -3,7 +3,7 @@ package dd_api
 import(
 	"context"
 		
-	dt "github.com/Peanuttown/tzzGoUtil/datastruct"
+	dt "github.com/pigfall/gosdk/datastruct"
 )
 
 type DeptTree struct{

@@ -3,7 +3,7 @@ package dd_api
 import(
 	"context"
 	"fmt"
-	"github.com/Peanuttown/tzzGoUtil/http"
+	"github.com/pigfall/gosdk/http"
 )
 
 // 根据unionid获取用户userid

@@ -3,7 +3,7 @@ package dd_api
 import (
 	"context"
 	"fmt"
-	"github.com/Peanuttown/tzzGoUtil/http"
+	"github.com/pigfall/gosdk/http"
 	//	"fmt"
 	//"encoding/base64"
 )

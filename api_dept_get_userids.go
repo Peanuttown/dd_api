@@ -2,7 +2,7 @@ package dd_api
 
 import(
 	"context"
-	"github.com/Peanuttown/tzzGoUtil/http"
+	"github.com/pigfall/gosdk/http"
 )
 
 
