@@ -1,6 +1,7 @@
 package dd_api
 
 import(
+	"fmt"
 	"context"
 		
 	dt "github.com/pigfall/gosdk/datastruct"
@@ -14,6 +15,10 @@ type DeptTree struct{
 type DeptNodeValue struct{
 	DeptId uint
 	Name string
+}
+
+func (this *DeptNodeValue) DeptIdStr()string{
+	return fmt.Sprintf("%d",this.DeptId)
 }
 
 
