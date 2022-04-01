@@ -9,8 +9,8 @@ import (
 // 获取部门用户userid列表
 type ApiDeptUpdate struct {
 	DeptIdEmbed
-	name      string `json:"name,omitempty"`
-	parent_id uint   `json:"parent_id,omitempty"`
+	Name      string `json:"name,omitempty"`
+	ParentId  uint   `json:"parent_id,omitempty"`
 }
 
 func NewApiDeptUpdate(deptId uint, name string, parentDeptId uint) *ApiDeptUpdate {
