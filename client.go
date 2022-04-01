@@ -1,6 +1,7 @@
 package dd_api
 
 import(
+	"errors"
 	"time"
 	"fmt"
 	"encoding/json"
@@ -25,6 +26,17 @@ type Res struct{
 	ErrCode int `json:"errcode"`
 	ErrMsg string `json:"errmsg"`
 	Result interface{} `json:"result"`
+}
+
+func ErrIsDeptNotFound(err error)bool{
+	if err ==nil{
+		return false
+	}
+	var e *Res
+	if errors.As(err,&e){
+		return e.ErrCode == 40009
+	}
+	return false
 }
 
 type ResI interface{
