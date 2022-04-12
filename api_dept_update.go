@@ -18,6 +18,8 @@ func NewApiDeptUpdate(deptId uint, name string, parentDeptId uint) *ApiDeptUpdat
 		DeptIdEmbed: DeptIdEmbed{
 			DeptId: deptId,
 		},
+		Name:name,
+		ParentId:parentDeptId,
 	}
 }
 

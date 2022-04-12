@@ -10,7 +10,10 @@ type ApiRoleGroupCreate struct{
 }
 
 
-func NewApiRoleGroupCreate(name string){
+func NewApiRoleGroupCreate(name string)*ApiRoleGroupCreate{
+	return &ApiRoleGroupCreate{
+		Name:name,
+	}
 
 }
 

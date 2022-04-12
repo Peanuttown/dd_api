@@ -25,7 +25,7 @@ type ApiRoleListRes struct{
 
 type RoleGroup struct{
 	Name string `json:"name"`
-	GroupId int `json:"group_id"`
+	GroupId int `json:"groupId"`
 	Roles []Role `json:"roles"`
 }
 
